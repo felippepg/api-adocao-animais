@@ -35,15 +35,12 @@
     "noImplicitReturns": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["./src/*"],
-      "@test/*": ["./test/*"]
-    },
-    "rootDirs": [
-      "./src",
-      "./test"
-    ],
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@src/*": ["./src/*"],
+    //   "@test/*": ["./test/*"]
+    // },
+    "rootDir": "./src",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
