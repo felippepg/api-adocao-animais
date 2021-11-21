@@ -18,7 +18,7 @@ describe('Create Users', () => {
     console.log(response.body)
   })
 
-  it.only('Should verify if user exists', async () => {
+  it('Should verify if user exists', async () => {
     const response = await request(app).post('/register').send({
       name: 'Felippe',
       login: 'felippe.testador',
