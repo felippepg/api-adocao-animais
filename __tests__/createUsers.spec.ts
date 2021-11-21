@@ -2,7 +2,7 @@ import request from 'supertest'
 import app from '../src/app'
 
 describe('Create Users', () => {
-  it('Should not create user', async () => {
+  it.only('Should not create user', async () => {
     const response = await request(app).post('/register').send({
       name: 'Felippe',
     })
