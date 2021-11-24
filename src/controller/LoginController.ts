@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import { LoginService } from '../service/LoginService'
 class LoginController {
-  handle(request: Request, response: Response) {
+  async login(request: Request, response: Response) {
     const { login, password } = request.body
     const loginService = new LoginService()
-    const result = loginService.execute()
+    const result = await loginService.execute(login, password)
     return response.json(result)
   }
 }

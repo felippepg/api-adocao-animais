@@ -28,7 +28,12 @@ class UserService {
           password: hashPassword,
         },
       })
-      return user
+      const data = {
+        id: user.id,
+        name: user.name,
+        login: user.login,
+      }
+      return data
     }
   }
 }
