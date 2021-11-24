@@ -27,7 +27,7 @@ describe('Create Users', () => {
     expect(response.body).toBe('User already exists')
   })
 
-  it('Should authorized', async () => {
+  it.skip('Should authorized', async () => {
     const response = await request(app)
       .get('/users')
       .set(
@@ -36,5 +36,23 @@ describe('Create Users', () => {
       )
 
     expect(response.body).toBe('Token is required')
+  })
+
+  it.skip('Should update user', async () => {
+    const response = await request(app).post('/user/1').send({
+      name: 'Felippe Gonçalves',
+      login: '',
+    })
+
+    expect(response.status).toBe(201)
+  })
+
+  it('Should not update user with a invalid ID', async () => {
+    const response = await request(app).post('/user/45').send({
+      name: 'Felippe Gonçalves',
+      login: 'teste',
+    })
+
+    expect(response.body).toBe('User not found')
   })
 })
