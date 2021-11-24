@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { UserService } from '../service/CreadUserService'
+import { FindOrDeleteUserService } from '../service/FindOrDeleteUserService'
 import { UpdateUserService } from '../service/UpdateUserService'
 
 class UserController {
@@ -19,10 +20,22 @@ class UserController {
   }
 
   async all(request: Request, response: Response) {
+    const findOrDeleteUserService = new FindOrDeleteUserService()
+    const result = await findOrDeleteUserService.findAll()
+    response.json(result)
+  }
+
+  async one(request: Request, response: Response) {
     const { id } = request.params
-    const { name, login } = request.body
-    const userService = new UpdateUserService()
-    const result = await userService.execute(id, name, login)
+    const findOrDeleteUserService = new FindOrDeleteUserService()
+    const result = await findOrDeleteUserService.findOne(id)
+    response.json(result)
+  }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params
+    const findOrDeleteUserService = new FindOrDeleteUserService()
+    const result = await findOrDeleteUserService.delete(id)
     response.json(result)
   }
 }

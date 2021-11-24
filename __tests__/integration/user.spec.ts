@@ -11,8 +11,8 @@ describe('Create Users', () => {
 
   it.skip('Should create user', async () => {
     const response = await request(app).post('/register').send({
-      name: 'Felippe',
-      login: 'felippe.testador',
+      name: 'Jessica',
+      login: 'jessica.pires',
       password: '2502',
     })
     console.log(response.body)
@@ -47,12 +47,29 @@ describe('Create Users', () => {
     expect(response.status).toBe(201)
   })
 
-  it('Should not update user with a invalid ID', async () => {
+  it.skip('Should not update user with a invalid ID', async () => {
     const response = await request(app).post('/user/45').send({
       name: 'Felippe Gonçalves',
       login: 'teste',
     })
 
     expect(response.body).toBe('User not found')
+  })
+
+  it.skip('Should return all users', async () => {
+    const response = await request(app).get('/users')
+    expect(response.body).toEqual([
+      { name: 'Felippe Gonçalves', login: 'felippe.goncalves' },
+    ])
+  })
+
+  it.skip('Should return one user', async () => {
+    const response = await request(app).get('/user/2')
+    expect(response.body).toEqual({ name: 'Jessica', login: 'jessica.pires' })
+  })
+
+  it('Should delete user', async () => {
+    const response = await request(app).delete('/user/2')
+    expect(response.body).toEqual('Deleted user')
   })
 })
