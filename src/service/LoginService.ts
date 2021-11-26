@@ -9,7 +9,6 @@ class LoginService {
         login,
       },
     })
-    console.log(user)
     if (!user) {
       return 'User not found'
     }

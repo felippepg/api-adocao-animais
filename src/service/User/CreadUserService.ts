@@ -1,4 +1,4 @@
-import prismaClient from '../prisma'
+import prismaClient from '../../prisma'
 import bcrypt from 'bcrypt'
 class UserService {
   async execute(name: string, login: string, password: string) {

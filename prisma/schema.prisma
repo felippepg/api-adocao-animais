@@ -11,8 +11,51 @@ datasource db {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  name    String?
-  login   String @unique
+  id       Int    @id @default(autoincrement())
+  name     String?
+  login    String @unique
   password String
+  adoption Adoption[]
 }
+
+model Adoption {
+  id           Int  @id @default(autoincrement())
+  user         User @relation(fields: [userId], references: [id])
+  userId       Int
+  pet          Pet  @relation(fields: [petId], references: [id])
+  petId        Int
+  dateAdoption DateTime @default(now())
+}
+
+model Pet {
+  id          Int @id @default(autoincrement())
+  name        String
+  sex         Sex @relation(fields: [sexId], references: [id])
+  sexId       Int
+  age         String
+  bio         String @db.Text
+  situation   Situation @relation(fields: [situationId], references: [id])
+  situationId Int
+  type        Type @relation(fields: [typeId], references: [id])
+  typeId      Int
+  adoption    Adoption?
+}
+
+model Situation {
+  id    Int @id @default(autoincrement())
+  name  String
+  pet   Pet[]
+}
+
+model Type {
+  id      Int @id @default(autoincrement())
+  name    String
+  pet     Pet[]
+}
+
+model Sex {
+  id      Int @id @default(autoincrement())
+  name    String
+  pet     Pet[]
+}
+

@@ -1,4 +1,4 @@
-import prismaClient from '../prisma'
+import prismaClient from '../../prisma'
 class UpdateUserService {
   async execute(id: string, name: string, login: string) {
     if (!id) {

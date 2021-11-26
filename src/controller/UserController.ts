@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { UserService } from '../service/CreadUserService'
-import { FindOrDeleteUserService } from '../service/FindOrDeleteUserService'
-import { UpdateUserService } from '../service/UpdateUserService'
+import { UserService } from '../service/User/CreadUserService'
+import { FindOrDeleteUserService } from '../service/User/FindOrDeleteUserService'
+import { UpdateUserService } from '../service/User/UpdateUserService'
 
 class UserController {
   async register(request: Request, response: Response) {

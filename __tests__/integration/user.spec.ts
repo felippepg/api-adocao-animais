@@ -68,7 +68,7 @@ describe('Create Users', () => {
     expect(response.body).toEqual({ name: 'Jessica', login: 'jessica.pires' })
   })
 
-  it('Should delete user', async () => {
+  it.skip('Should delete user', async () => {
     const response = await request(app).delete('/user/2')
     expect(response.body).toEqual('Deleted user')
   })
