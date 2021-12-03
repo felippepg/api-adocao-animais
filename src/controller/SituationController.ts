@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { CreateSituationService } from '../service/Situation/CreateSituationService'
-import { FindOrDeleteSituationService } from '../service/Situation/FindOrDeleteSituationService'
-import { UpdateSituationService } from '../service/Situation/UpdateSituationService'
+import { CreateSituationService } from '../services/Situation/CreateSituationService'
+import { FindOrDeleteSituationService } from '../services/Situation/FindOrDeleteSituationService'
+import { UpdateSituationService } from '../services/Situation/UpdateSituationService'
 
 class SituationController {
   async add(request: Request, response: Response) {

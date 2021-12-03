@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { LoginService } from '../service/LoginService'
+import { LoginService } from '../services/LoginService'
 class LoginController {
   async login(request: Request, response: Response) {
     const { login, password } = request.body

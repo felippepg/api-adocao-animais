@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { CreateSexService } from '../service/Sex/CreateSexService'
-import { FindOrDeleteSexService } from '../service/Sex/FindOrDeleteSexService'
-import { UpdateSexService } from '../service/Sex/UpdateSexService'
+import { CreateSexService } from '../services/Sex/CreateSexService'
+import { FindOrDeleteSexService } from '../services/Sex/FindOrDeleteSexService'
+import { UpdateSexService } from '../services/Sex/UpdateSexService'
 
 class SexController {
   async add(request: Request, response: Response) {

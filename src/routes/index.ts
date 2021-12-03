@@ -4,6 +4,7 @@ import { LoginController } from '../controller/LoginController'
 import { SituationController } from '../controller/SituationController'
 import { TypeController } from '../controller/TypeController'
 import { SexController } from '../controller/SexController'
+import { PetController } from '../controller/PetController'
 // import auth from '../middlewares/auth'
 
 const routes = Router()
@@ -37,4 +38,9 @@ routes.get('/sexs', new SexController().all)
 routes.get('/sex/:id', new SexController().one)
 routes.put('/sex/:id/edit', new SexController().update)
 routes.delete('/sex/:id/delete', new SexController().remove)
+
+//Pet
+routes.post('/pet/add', new PetController().add)
+routes.get('/pets', new PetController().all)
+// routes.get('/pet/:id', new PetController().one)
 export default routes

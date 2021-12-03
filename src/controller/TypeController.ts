@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { CreateTypeService } from '../service/Type/CreateTypeService'
-import { FindOrDeleteTypeService } from '../service/Type/FindOrDeleteTypeService'
-import { UpdateTypeService } from '../service/Type/UpdateTypeService'
+import { CreateTypeService } from '../services/Type/CreateTypeService'
+import { FindOrDeleteTypeService } from '../services/Type/FindOrDeleteTypeService'
+import { UpdateTypeService } from '../services/Type/UpdateTypeService'
 
 class TypeController {
   async add(request: Request, response: Response) {
