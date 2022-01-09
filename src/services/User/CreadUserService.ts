@@ -14,11 +14,14 @@ class UserService {
     }
     const userExists = await prismaClient.user.findFirst({
       where: {
-        name,
+        login,
       },
     })
     if (userExists) {
-      return 'User already exists'
+      return {
+        error:
+          'Usuario já existe, verifique os dados informados e tente novamente',
+      }
     } else {
       const hashPassword = await bcrypt.hash(password, 10)
       const user = await prismaClient.user.create({

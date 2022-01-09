@@ -3,7 +3,7 @@ import prismaClient from '../../prisma'
 class FindOrDeleteSituationService {
   async findAll() {
     const situation = await prismaClient.situation.findMany()
-    return situation
+    return { result: situation }
   }
 
   async findOne(id: string) {

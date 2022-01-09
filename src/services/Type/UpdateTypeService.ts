@@ -20,7 +20,7 @@ class UpdateTypeService {
           id: intId,
         },
         data: {
-          name: name.toUpperCase(),
+          name,
         },
       })
       return newType

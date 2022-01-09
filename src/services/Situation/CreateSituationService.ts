@@ -6,7 +6,7 @@ class CreateSituationService {
       return 'Situation value is not defined'
     }
     const data = await prismaClient.situation.create({
-      data: { name: situation.toUpperCase() },
+      data: { name: situation },
     })
 
     return data

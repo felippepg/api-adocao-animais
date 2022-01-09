@@ -10,10 +10,9 @@ class LoginService {
       },
     })
     if (!user) {
-      return 'User not found'
+      return { error: 'Usuario não encontrado' }
     }
     if (await bcrypt.compare(password, user.password)) {
-      console.log(process.env.APP_SECRET)
       const token = jwt.sign(
         { id: user.id },
         process.env.APP_SECRET as string,
@@ -29,7 +28,7 @@ class LoginService {
       }
       return data
     } else {
-      return 'Invalid Credentials'
+      return { error: 'Credenciais inválidas' }
     }
   }
 }

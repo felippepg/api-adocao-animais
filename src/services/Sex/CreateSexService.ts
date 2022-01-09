@@ -6,7 +6,7 @@ class CreateSexService {
       return 'Type value is not defined'
     }
     const data = await prismaClient.sex.create({
-      data: { name: sex.toUpperCase() },
+      data: { name: sex },
     })
 
     return data

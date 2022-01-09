@@ -5,7 +5,8 @@ import { SituationController } from '../controller/SituationController'
 import { TypeController } from '../controller/TypeController'
 import { SexController } from '../controller/SexController'
 import { PetController } from '../controller/PetController'
-// import auth from '../middlewares/auth'
+import auth from '../middlewares/auth'
+import { AdoptionController } from '../controller/AdoptionController'
 
 const routes = Router()
 
@@ -13,7 +14,7 @@ routes.post('/register', new UserController().register)
 routes.post('/login', new LoginController().login)
 
 //Usuario
-// routes.use(auth)
+routes.use(auth)
 routes.post('/user/:id/edit', new UserController().edit)
 routes.get('/users', new UserController().all)
 routes.get('/user/:id', new UserController().one)
@@ -42,5 +43,12 @@ routes.delete('/sex/:id/delete', new SexController().remove)
 //Pet
 routes.post('/pet/add', new PetController().add)
 routes.get('/pets', new PetController().all)
+routes.get('/pets/pagination', new PetController().byPagination)
+routes.get('/pets/all/pagination', new PetController().allByPagination)
+
 // routes.get('/pet/:id', new PetController().one)
+
+//Adoção
+routes.post('/adoption', new AdoptionController().adoption)
+routes.post('/adoption/my-pets', new AdoptionController().userAndPetAdoption)
 export default routes

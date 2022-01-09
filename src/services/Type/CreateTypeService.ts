@@ -6,7 +6,7 @@ class CreateTypeService {
       return 'Type value is not defined'
     }
     const data = await prismaClient.type.create({
-      data: { name: type.toUpperCase() },
+      data: { name: type },
     })
 
     return data

@@ -20,7 +20,7 @@ class UpdateSituationService {
           id: intId,
         },
         data: {
-          name: situation.toUpperCase(),
+          name: situation,
         },
       })
       return newSituation

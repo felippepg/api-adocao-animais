@@ -3,7 +3,7 @@ import prismaClient from '../../prisma'
 class FindOrDeleteSexService {
   async findAll() {
     const sexs = await prismaClient.sex.findMany()
-    return sexs
+    return { result: sexs }
   }
 
   async findOne(id: string) {

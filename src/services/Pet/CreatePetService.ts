@@ -23,12 +23,14 @@ class CreatePetService {
       typeof situationId != 'number' ||
       typeof typeId != 'number'
     ) {
-      return 'Invalid Values'
+      return {
+        warning: 'Verifique se todos os campos foram preenchidos corretamente',
+      }
     }
     const pet = await prismaClient.pet.create({
       data: { name, sexId, age, bio, situationId, typeId },
     })
-    return pet
+    return { result: pet }
   }
 }
 

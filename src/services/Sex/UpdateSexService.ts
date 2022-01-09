@@ -20,7 +20,7 @@ class UpdateSexService {
           id: intId,
         },
         data: {
-          name: sex.toUpperCase(),
+          name: sex,
         },
       })
       return newSex

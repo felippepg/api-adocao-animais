@@ -3,7 +3,7 @@ import prismaClient from '../../prisma'
 class FindOrDeleteTypeService {
   async findAll() {
     const types = await prismaClient.type.findMany()
-    return types
+    return { result: types }
   }
 
   async findOne(id: string) {

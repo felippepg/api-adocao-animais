@@ -29,6 +29,40 @@ class FindOrDeletePetnService {
     })
     return 'Deleted pet'
   }
+
+  async findByPagination(skip: string, take: string) {
+    const animals = await prismaClient.pet.findMany({
+      where: {
+        situationId: 2,
+      },
+      skip: parseInt(skip),
+      take: parseInt(take),
+    })
+
+    const total = await prismaClient.pet.aggregate({
+      where: {
+        situationId: 2,
+      },
+      _count: {
+        id: true,
+      },
+    })
+    return { result: animals, total }
+  }
+
+  async findAllByPagination(skip: string, take: string) {
+    const animals = await prismaClient.pet.findMany({
+      skip: parseInt(skip),
+      take: parseInt(take),
+    })
+
+    const total = await prismaClient.pet.aggregate({
+      _count: {
+        id: true,
+      },
+    })
+    return { result: animals, total }
+  }
 }
 
 export { FindOrDeletePetnService }
